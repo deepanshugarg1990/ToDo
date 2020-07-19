@@ -3,7 +3,7 @@ import {StyleSheet, Text, TextInput, TouchableOpacity, View,} from 'react-native
 import {connect, useDispatch} from 'react-redux';
 import { addTodo2 } from '../actions'
 const AddTodo = ()=>   {
-
+    // hooks implemented. 
     const [value, setValue] = useState(undefined);
     const dispatch = useDispatch();
 
@@ -20,7 +20,7 @@ const AddTodo = ()=>   {
                 <TextInput
                     value={value}
                     onChangeText={value => setValue(value)}
-                    placeholder="Example create new video"
+                    placeholder="Enter your to do here. "
                     style={{
                         borderWidth: 1,
                         borderColor: '#f2f2e1',
@@ -29,10 +29,9 @@ const AddTodo = ()=>   {
                         flex: 1,
                         padding: 5
                     }}/>
-
                 <TouchableOpacity onPress={() => addTodo()}>
-                    <View style={{height: 50, backgroundColor: "#eaeaea"}}>
-                        <Text style={{fontSize: 20, margin: 10}}>+</Text>
+                    <View style={{height: 50, backgroundColor: "#eaeaea", marginLeft:10}}>
+                        <Text style={{fontSize: 20, margin: 10}}> Add </Text>
                     </View>
                 </TouchableOpacity>
             </View>
