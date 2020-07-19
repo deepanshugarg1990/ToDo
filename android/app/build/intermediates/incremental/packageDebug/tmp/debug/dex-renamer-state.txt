@@ -1,0 +1,4 @@
+#Sun Jul 19 21:23:14 IST 2020
+base.0=/Users/temp/Desktop/Test/ToSample/Redux/android/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
