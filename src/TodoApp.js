@@ -8,7 +8,9 @@ class TodoApp extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <AddTodo/>
+                <AddTodo
+                 props = {this.props}
+                />
 
                 <View>
                     <VisibleTodos/>

@@ -1,26 +1,25 @@
-import React, {Component} from 'react';
+import React, {useState, useCallback} from 'react';
 import {StyleSheet, Text, TextInput, TouchableOpacity, View,} from 'react-native';
-import {connect} from 'react-redux';
-import { addTodo } from '../actions'
-class AddTodo extends Component {
+import {connect, useDispatch} from 'react-redux';
+import { addTodo2 } from '../actions'
+const AddTodo = ()=>   {
 
-    state = {
-        text: ''
-    };
+    const [value, setValue] = useState(undefined);
+    const dispatch = useDispatch();
 
-    addTodo = (text) => {
-        //redux store
-        this.props.dispatch(addTodo(text))
-        this.setState({text: ''})
+    const addTodo  = useCallback(() => {
+        if (value.length > 0) {
+        dispatch(addTodo2(value));
+        setValue('')
+        }
+    })
 
-    };
 
-    render() {
         return (
             <View style={{flexDirection: 'row', marginHorizontal: 20, marginTop: 10,}}>
                 <TextInput
-                    value={this.state.text}
-                    onChangeText={(text) => this.setState({text})}
+                    value={value}
+                    onChangeText={value => setValue(value)}
                     placeholder="Example create new video"
                     style={{
                         borderWidth: 1,
@@ -31,14 +30,14 @@ class AddTodo extends Component {
                         padding: 5
                     }}/>
 
-                <TouchableOpacity onPress={() => this.addTodo(this.state.text)}>
+                <TouchableOpacity onPress={() => addTodo()}>
                     <View style={{height: 50, backgroundColor: "#eaeaea"}}>
                         <Text style={{fontSize: 20, margin: 10}}>+</Text>
                     </View>
                 </TouchableOpacity>
             </View>
         );
-    }
+
 }
 
 
